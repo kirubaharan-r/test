@@ -8,7 +8,7 @@ spec:
   interval: 10s
   releaseName: kinara
   install:
-    createNamespace: testing2
+    createNamespace: 'testing2'
   chart:
     spec:
       chart: a8flow-dependency-chart 
