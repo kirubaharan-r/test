@@ -5,9 +5,10 @@ metadata:
   name: kinara
   namespace: testing
 spec:
-  interval: 10m
+  interval: 10s
   releaseName: kinara
-  targetNamespace: testing
+  install:
+    createNamespace: testing2
   chart:
     spec:
       chart: a8flow-dependency-chart 
