@@ -1,1 +1,23 @@
 ---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kinara
+  namespace: testing
+spec:
+  interval: 10m
+  releaseName: kinara
+  targetNamespace: testing
+  chart:
+    spec:
+      chart: a8flow-dependency-chart 
+      version: '1.0.77-dev-22-04-2025'
+      sourceRef:
+        kind: HelmRepository
+        name: podinfo
+        namespace: flux-system
+  valuesFrom:
+    - kind: Secret
+      name: podinfo-values
+      namespace: testing
+
