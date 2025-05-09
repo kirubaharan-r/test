@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 10m
   releaseName: kinara
-  targetNamespace: testing
+  targetNamespace: testing1
   chart:
     spec:
       chart: a8flow-dependency-chart 
