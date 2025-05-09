@@ -7,8 +7,6 @@ metadata:
 spec:
   interval: 10s
   releaseName: kinara
-  install:
-    createNamespace: 'testing2'
   chart:
     spec:
       chart: a8flow-dependency-chart 
@@ -20,5 +18,4 @@ spec:
   valuesFrom:
     - kind: Secret
       name: podinfo-values
-      namespace: testing
 
