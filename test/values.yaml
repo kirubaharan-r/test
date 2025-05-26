@@ -1,0 +1,6 @@
+controller:
+  ## The name of the Ingress Controller daemonset or deployment.
+  name: kiruyoyo
+
+  ## The kind of the Ingress Controller installation - deployment or daemonset.
+  kind: daemonset
