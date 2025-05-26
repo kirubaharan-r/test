@@ -1,42 +1,17 @@
----
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: deps
-  namespace: testing
+  name: nginx
+  namespace: flux-system
 spec:
-  interval: 10s
-  releaseName: deps
   chart:
     spec:
-      chart: a8flow-dependency-chart 
-      version: '1.0.77-dev-22-04-2025'
+      chart: nginx-ingress
+      version: '2.1.0'
+      reconcileStrategy: ChartVersion
       sourceRef:
         kind: HelmRepository
-        name: podinfo
-        namespace: flux-system
-  valuesFrom:
-    - kind: Secret
-      name: podinfo-values
-
----
-apiVersion: helm.toolkit.fluxcd.io/v2
-kind: HelmRelease
-metadata:
-  name: kinara
-  namespace: testing
-spec:
-  interval: 10s
-  timeout: 15m
-  releaseName: kinara
-  chart:
-    spec:
-      chart: a8flow-platform-chart 
-      version: '1.0.95-dev-23-04-2025'
-      sourceRef:
-        kind: HelmRepository
-        name: platform
-        namespace: flux-system
-  valuesFrom:
-    - kind: Secret
-      name: podinfo-values
+        name: nginx
+      valuesFiles:
+        - values.yaml        
+  interval: 1m0s
